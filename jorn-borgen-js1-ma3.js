@@ -1,7 +1,8 @@
 //Question (1)
-const example = (a,b) => {
+const example = (a, b) => {
     return a - b;
 }
+
 
 //Question (2)
 const apiUrl = "https://api.rawg.io/api/games?genres=sports";
@@ -11,9 +12,9 @@ fetch(apiUrl)
     return response.json();
 })
 .then(function(json){
-    for(let i = 0; i < json.results.length; i++){
-        console.log(json.results[i].name);
-    }
+    json.results.forEach(e => {
+        console.log(e.name);
+    });
 })
 .catch(function(error){
     window.location.href = "error.html";
@@ -24,14 +25,13 @@ fetch(apiUrl)
 const replaceWord = "These cats are outrageous.";
 console.log(replaceWord.replace("cats", "giraffes"));
 
+
 //Question (4)
 function checkUrlParam(){ //Added in function to prevent redirect during testing
     const urlSearch = document.location.search;
     const urlData = new URLSearchParams(urlSearch);
     if (urlData.has("userId")){
-        let id = urlData.get("userId");
-
-        if(id < 10){
+        if(urlData.get("userId") < 10){
             window.location.href = "first.html";
         }
         else{
@@ -43,17 +43,20 @@ function checkUrlParam(){ //Added in function to prevent redirect during testing
     }
 }
 
+
 //Question (5)
 const parentElement = document.querySelector(".container");
 const childElement = document.querySelector("button");
 parentElement.removeChild(childElement);
 
+
 //Question (6)
-const parentElement2 = document.querySelector(".animals li");
+const parentElement2 = document.querySelector(".animals li"); //Select the first li item so we add after it
 const newListItem = document.createElement("li");
 newListItem.innerHTML = "Parrots";
 newListItem.className = "parrots";
 parentElement2.after(newListItem);
+
 
 //Question (7)
 const apiUrl2 = "https://api.rawg.io/api/games/3801";
