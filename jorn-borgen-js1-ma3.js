@@ -51,7 +51,7 @@ parentElement.removeChild(childElement);
 
 
 //Question (6)
-const parentElement2 = document.querySelector(".animals li"); //Select the first li item so we add after it
+const parentElement2 = document.querySelector(".animals .cows");
 const newListItem = document.createElement("li");
 newListItem.innerHTML = "Parrots";
 newListItem.className = "parrots";
